@@ -8,6 +8,11 @@ class MultiMethod(object):
     """
 
     def __init__(self, name):
+        """
+        creates a MultiMethod object with a given name and an empty typemap.
+
+        :param name: used for diagnostics
+        """
         self.name = name
         self.funcs = {}
         self.typemap = {}
@@ -26,6 +31,10 @@ class MultiMethod(object):
         self.funcs[signature] = func
 
     def __call__(self, *args):
+        """
+        Make the MultiMethod object itself callable.
+        It looks up the actual function to be called in the type map based on the parameter type passed in.
+        """
         types = tuple(arg.__class__ for arg in args)
         try:
             func = self.typemap[types]
