@@ -3,6 +3,9 @@ Computer Process Organization Course Lab Work 3
 
 ## library Description
 #### The library should support multiple-dispatch on positional, optional and named arguments.
+
+#### The library should support inheritance
+
 #### Use unit tests with several multi-methods, All tests passed(src/test_result.png).
 
 ## file Description:

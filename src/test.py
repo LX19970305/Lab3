@@ -37,3 +37,29 @@ def test_addmethod():
 
     assert D(1, 2) == 3
     assert D(1.0, 2.0) == 3.0
+
+
+class A(object):
+    pass
+
+
+class B(A):
+    pass
+
+
+class C(A):
+    pass
+
+
+def test_inheritance():
+    @dispatch(A)
+    def foo(x):
+        return 'AA'
+
+    @dispatch(C)
+    def foo(x):
+        return 'CC'
+
+    assert foo(A()) == 'AA'
+    assert foo(B()) == 'AA'
+    assert foo(C()) == 'CC'
